@@ -15,9 +15,9 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
 		features ="src/test/resources/functionalTests",
 		glue= {"stepDefinitions"},
-		tags="@smoke",
+		
 			plugin = {"json:target/cucumber.json"}
-//		"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
+//		"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm" tags="@smoke",
 		)
 public class TestRunner {
 	
