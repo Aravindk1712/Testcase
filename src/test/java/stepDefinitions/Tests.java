@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,17 +24,26 @@ import org.openqa.selenium.interactions.Actions;
 public class Tests {
 WebDriver driver;
 
+@Before
+public void initilization() {
+	WebDriverManager.chromedriver().setup();
+	ChromeOptions options=new ChromeOptions();
+	options.addArguments("--remote-allow-origins=*");
+	//options.addArguments("headless");
+    driver=new ChromeDriver(options);
+    driver.get("https://demoqa.com/");
+    driver.manage().window().maximize();
+}
+@After
+public void end() {
+	driver.close();
 	
+	
+}
 
 	@Given("User should open the url")
 	public void user_should_open_the_url() {
-	    WebDriverManager.chromedriver().setup();
-		ChromeOptions options=new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		//options.addArguments("headless");
-	    driver=new ChromeDriver(options);
-	    driver.get("https://demoqa.com/");
-	    driver.manage().window().maximize();
+	   
 	    //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    //driver.findElement(By.xpath("//div[text()=' Login ']")).click();
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -68,8 +79,8 @@ WebDriver driver;
 		 
 		driver.findElement(By.xpath("//button [@Id='submit']")).click();
 		
-		Thread.sleep(6000);
-		driver.close();   
+		
+		   
 		
 	}
 	
@@ -91,8 +102,8 @@ WebDriver driver;
 		driver.findElement(By.xpath("//span[contains(text(),'Word File.doc')]")).click();
 		
 		
-		Thread.sleep(3000);
-		driver.close();   
+		
+		 
 		
 	}
 	@When("User should click the radiobutton option")
@@ -104,13 +115,13 @@ WebDriver driver;
 	@When("User should click the yes for the answer")
 	public void user_should_click_the_yes_for_the_answer() {
 		driver.findElement(By.xpath("//label[normalize-space()='Yes']")).click();
-		driver.close();
+		
 	    
 	}
 	@When("User should click the button option")
 	public void user_should_click_the_button_option() throws InterruptedException {
 		driver.findElement(By.xpath("//span[normalize-space()='Buttons']")).click();
-		Thread.sleep(3000);
+		
 	   
 	}
 	@When("User should click the double click")
@@ -124,8 +135,8 @@ WebDriver driver;
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath("//button[@id=\"doubleClickBtn\"]")); 
 		act.doubleClick(ele).perform();
-		Thread.sleep(3000);
-		driver.close();
+		
+		
 	}
 
 @When("User should click the webtable option")
@@ -143,7 +154,7 @@ public void user_should_click_the_edit_option_and_submit() throws InterruptedExc
 	driver.findElement(By.xpath("//input[@id='firstName']")).sendKeys("Arav");
 	driver.findElement(By.xpath("//input[@id='lastName']")).sendKeys("kum");
 	driver.findElement(By.xpath("//button[@id='submit']")).click();
-	Thread.sleep(3000);
+	
 	
 
 	
@@ -159,8 +170,8 @@ public void user_should_click_the_radio_button_option() {
 @When("User should click the Impressive")
 public void user_should_click_the_Impressive() throws InterruptedException {
 	driver.findElement(By.xpath("//label[normalize-space()='Impressive']")).click();
-	Thread.sleep(5000);
-	driver.close();
+	
+	
 	
 	
 	
@@ -170,8 +181,8 @@ public void user_should_click_the_Impressive() throws InterruptedException {
 @When("User should click the delete button")
 public void user_should_click_the_delete_button() throws InterruptedException {
 	driver.findElement(By.xpath("//span[@id='delete-record-3']//*[name()='svg']//*[name()='path' and contains(@d,'M864 256H7')]")).click();
-	Thread.sleep(5000);
-	driver.close();
+	
+	
 	
 	
 	
@@ -189,8 +200,8 @@ public void user_should_click_the_Rightclick_option() throws InterruptedExceptio
 	Actions act = new Actions(driver);
 	WebElement ele = driver.findElement(By.xpath("//button[@id='rightClickBtn']")); 
 	act.contextClick(ele).perform();
-	Thread.sleep(3000);
-	driver.close();
+	
+	
 }
 
 @When("User should click the link option")
@@ -212,9 +223,9 @@ public void user_should_click_the_notfound_option() throws InterruptedException 
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='invalid-url']")).click(); 
-	Thread.sleep(3000);
 	
-	driver.close();
+	
+	
 }
 @When("User should click the brokenlink option")
 public void user_should_click_the_brokenlink_option() throws InterruptedException {
@@ -234,9 +245,9 @@ public void user_should_click_the_brokenlink() throws InterruptedException {
 	
 	
 	driver.findElement(By.xpath("//a[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='click here for broken link']")).click(); 
-	Thread.sleep(3000);
 	
-	driver.close();
+	
+	
 }
 //@When("User should click the validlink option")
 //public void user_should_click_the_validlink_option() throws InterruptedException {
@@ -256,9 +267,9 @@ public void user_should_click_the_validlink() throws InterruptedException {
 	
 	
 	driver.findElement(By.xpath("//a[normalize-space()='Click Here for Valid Link']")).click(); 
-	Thread.sleep(5000);
 	
-	driver.close();
+	
+	
 }
 @When("User should click the forbidden option")
 public void user_should_click_the_forbidden_option() throws InterruptedException {
@@ -271,7 +282,7 @@ public void user_should_click_the_forbidden_option() throws InterruptedException
 	driver.findElement(By.xpath("//a[@id='forbidden']")).click(); 
 	Thread.sleep(3000);
 	
-	driver.close();
+	
 }
 
 @When("User should click the unauthorized option")
@@ -283,9 +294,9 @@ public void user_should_click_the_unauthorized_option() throws InterruptedExcept
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='unauthorized']")).click(); 
-	Thread.sleep(3000);
 	
-	driver.close();
+	
+	
 }
 
 @When("User should click the created option")
@@ -297,9 +308,9 @@ public void user_should_click_the_created_option() throws InterruptedException {
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='created']")).click(); 
-	Thread.sleep(3000);
 	
-	driver.close();
+	
+	
 }
 @When("User should click the nocontent option")
 public void user_should_click_the_nocontent_option() throws InterruptedException {
@@ -310,9 +321,9 @@ public void user_should_click_the_nocontent_option() throws InterruptedException
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='no-content']")).click(); 
-	Thread.sleep(3000);
 	
-	driver.close();
+	
+	
 }
 
 @When("User should click the moved option")
@@ -324,9 +335,9 @@ public void user_should_click_the_moved_option() throws InterruptedException {
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='moved']")).click(); 
-	Thread.sleep(1000);
 	
-	driver.close();
+	
+	
 }
 
 
@@ -339,9 +350,9 @@ public void user_should_click_the_badrequest_option() throws InterruptedExceptio
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='bad-request']")).click(); 
-	Thread.sleep(1000);
 	
-	driver.close();
+	
+	
 }
 @When("User should click the home option")
 public void user_should_click_the_home_option() throws InterruptedException {
@@ -352,9 +363,9 @@ public void user_should_click_the_home_option() throws InterruptedException {
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='simpleLink']")).click(); 
-	Thread.sleep(1000);
 	
-	driver.close();
+	
+	
 }
 @When("User should click the homevPSkr option")
 public void user_should_click_the_homevPSkr_option() throws InterruptedException {
@@ -365,9 +376,10 @@ public void user_should_click_the_homevPSkr_option() throws InterruptedException
     js.executeScript("window.scrollBy(0,350)", "");
 	
 	driver.findElement(By.xpath("//a[@id='dynamicLink']")).click(); 
-	Thread.sleep(1000);
+
+
 	
-	driver.close();
+	
 }
 
 @When("User should click the edit option and edit salary")
@@ -380,7 +392,7 @@ public void user_should_click_the_edit_option_and_edit_salary() throws Interrupt
 	driver.findElement(By.xpath("//span[@id='edit-record-2']//*[name()='svg']//*[name()='path' and contains(@d,'M880 836H1')]")).click();
 	driver.findElement(By.xpath("//input[@id='salary']")).sendKeys("200");
      driver.findElement(By.xpath("//button[@id='submit']")).click();
-	driver.close();
+	
 	
 
 	
@@ -397,7 +409,7 @@ public void user_should_click_the_edit_option_and_edit_age() throws InterruptedE
 	
 	driver.findElement(By.xpath("//input[@id='age']")).sendKeys("19");
      driver.findElement(By.xpath("//button[@id='submit']")).click();
-	driver.close();
+	
 	
 
 	
@@ -413,7 +425,7 @@ public void user_should_click_the_edit_option_and_edit_email() throws Interrupte
 	
 	driver.findElement(By.xpath("//input[@id='userEmail']")).sendKeys("aravindk1994@gmail.com");
      driver.findElement(By.xpath("//button[@id='submit']")).click();
-	driver.close();
+	
 	
 
 	
@@ -431,9 +443,9 @@ public void user_should_click_the_edit_option_and_change_department() throws Int
 	elem.click();
 	act.doubleClick(elem).perform();
 	elem.sendKeys("legal");
-	Thread.sleep(2000);
+	
      driver.findElement(By.xpath("//button[@id='submit']")).click();
-	driver.close();
+	
 	
 
 	
@@ -450,9 +462,9 @@ public void user_should_click_the_edit_option_and_change_lastname() throws Inter
 	eleme.click();
 	act.doubleClick(eleme).perform();
 	eleme.sendKeys("abcd");
-	Thread.sleep(2000);
+
      driver.findElement(By.xpath("//button[@id='submit']")).click();
-	driver.close();
+	
 	
 
 	
@@ -484,19 +496,19 @@ public void user_should_click_the_edit_profile_button() throws InterruptedExcept
 	   
     driver.findElement(By.xpath("//input[@id='landLinePhoneNumber']")).sendKeys("044-22771317");
     driver.findElement(By.xpath("//button[@class='btn d-flex justify-content-center align-items-center w-100 h-100 btn-primary']")).click();
-    Thread.sleep(5000);
+   
 }
 @When("User should change the name and add mobile number and click save button")
 public void user_should_change_the_name_and_add_mobile_number_and_click_save_button() {
-	driver.close();
+	
 }
 
 @When("User should click the switch theme button new  button")
 public void user_should_click_the_switch_theme_button_new_button() throws InterruptedException {
     
 	driver.findElement(By.xpath("//a[@href='/personal/settings']//div[@class='quick-access-icon']//icon//*[name()='svg']")).click();
-	Thread.sleep(5000);
-	driver.close();
+	
+	
 }
 
 @When("User should click the payment button")
@@ -525,7 +537,7 @@ public void user_should_click_the_payment_button() throws AWTException, Interrup
 public void user_should_enter_the_value_and_click_confirm_button() {
     
 	//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
-	driver.close();
+	
 }
 
 @When("User should click the directory button")
@@ -558,14 +570,14 @@ public void User_should_click_the_directory_button() throws AWTException, Interr
     
     
     
-    Thread.sleep(5000);
+    
 }
 
 @When("User should click My vouchers and click Buy vouchers and send button")
 public void User_should_click_My_vouchers_and_click_Buy_vouchers_and_send_button() {
     
 	//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
-	driver.close();
+	
 }
 
 
@@ -576,7 +588,7 @@ public void user_should_click_scheduled_payment() {
 	//driver.findElement(By.xpath("//th[text()='Due date']//parent::thead//following::td//a[text()=' 08/05/2023 ']")).click();
 	//driver.findElement(By.xpath("//div[text()='Cancel this scheduled payment']")).click();
 	//driver.findElement(By.xpath("//span[text()='Cancel']")).click();
-	driver.close();
+	
 	
 }
 
@@ -611,7 +623,7 @@ public void user_should_click_the_add_newest_button() throws AWTException, Inter
 public void user_should_enter_the_value_and_click_the_submit_button() {
     
 	//driver.findElement(By.xpath("//span[text()='Confirm']")).click();
-	driver.close();
+	
 }*/
 
 
