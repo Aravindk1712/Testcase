@@ -15,7 +15,7 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
 		features ="src/test/resources/functionalTests",
 		glue= {"stepDefinitions"},
-		tags= ("@smoke,@sanity"),
+		
 		
 		
 		
