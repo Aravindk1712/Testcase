@@ -8,7 +8,7 @@ When User should click the element button
 And User should click the text box and enter all the details
 And User should click the submit button
 
-@smoke2
+@smoke
 Scenario Outline: verify the checkbox in Demoqa 
 
 Given User should open the url
@@ -16,7 +16,7 @@ When User should click the element button
 And User should click the check box
 And User should click the home  button and click workfile.doc
 
-@test3
+@smoke
 Scenario Outline: verify the radiobutton in Demoqa 
 
 Given User should open the url
@@ -26,7 +26,7 @@ And User should click the yes for the answer
 
 
 
-@test4
+@smoke
 Scenario Outline: verify the buttonn in Demoqa 
 
 Given User should open the url
@@ -36,7 +36,7 @@ And User should click the double click
 
 
 
-@test5
+@smoke
 Scenario Outline: verify the webtable and edit in Demoqa 
 
 Given User should open the url
@@ -47,7 +47,7 @@ And User should click the edit option and submit
 
 
 
-@test6
+@smoke
 Scenario Outline: verify the rad_button in Demoqa 
 
 Given User should open the url
@@ -55,7 +55,7 @@ When User should click the element button
 And User should click the radio_button option
 And User should click the Impressive
 
-@test7
+@smoke
 Scenario Outline: verify the webtable and delete table in Demoqa 
 
 Given User should open the url
@@ -64,7 +64,7 @@ And User should click the webtable option
 And User should click the delete button
 
 
-@test8
+@smoke
 Scenario Outline: verify the Demoqa Right_click option 
 
 Given User should open the url
@@ -73,7 +73,7 @@ And User should click the button option
 And User should click the Rightclick option 
 
 
-@test9
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -83,7 +83,7 @@ And User should click the notfound option
 
 
 
-@test10
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -94,7 +94,7 @@ And User should click the brokenlink
 
 
 
-@test11
+@smoke
 Scenario Outline: verify the Demoqa  valid link option 
 
 Given User should open the url
@@ -103,7 +103,7 @@ And User should click the brokenlink option
 And User should click the validlink  
 
 
-@test12
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -111,7 +111,7 @@ When User should click the element button
 And User should click the link option
 And User should click the forbidden option
 
-@test13
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -119,7 +119,7 @@ When User should click the element button
 And User should click the link option
 And User should click the unauthorized option
 
-@test14
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -128,7 +128,7 @@ And User should click the link option
 And User should click the created option
 
 
-@test15
+@smoke
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -137,7 +137,7 @@ And User should click the link option
 And User should click the nocontent option
 
 
-@test16
+@smoke
 Scenario Outline: verify the Demoqa move option 
 
 Given User should open the url
@@ -146,7 +146,7 @@ And User should click the link option
 And User should click the moved option
 
 
-@test17
+@smoke
 Scenario Outline: verify the Demoqa badrequest option 
 
 Given User should open the url
@@ -156,7 +156,7 @@ And User should click the badrequest option
 
 
 
-@test18
+@smoke
 Scenario Outline: verify the Demoqa Home  option 
 
 Given User should open the url
@@ -165,7 +165,7 @@ And User should click the link option
 And User should click the home option
 
 
-@test19
+@smoke
 Scenario Outline: verify the homevPSkr Home  option 
 
 Given User should open the url
@@ -175,7 +175,7 @@ And User should click the homevPSkr option
 
 
 
-@test20
+@sanity
 Scenario Outline: verify the webtable and edit salary in Demoqa 
 
 Given User should open the url
@@ -184,7 +184,7 @@ And User should click the webtable option
 And User should click the edit option and edit salary
 
 
-@test21
+@sanity
 Scenario Outline: verify the Age and  able to edit age  in Demoqa 
 
 Given User should open the url
@@ -194,7 +194,7 @@ And User should click the edit option and edit age
 
 
 
-@test22
+@sanity
 Scenario Outline: verify the Email and  able to edit Email  in Demoqa 
 
 Given User should open the url
@@ -237,7 +237,7 @@ Examples:
 
 
 
-@test26
+@sanity
 Scenario Outline: verify the cyclos switch theme
 
 Given User launch open the url
@@ -249,7 +249,7 @@ Examples:
 |arav|1994|
 
 
-@test27
+@sanity
 Scenario Outline: verify the cyclos in payment user
 
 Given User launch open the url
@@ -262,8 +262,8 @@ Examples:
 
 
 
-@test28
 
+@sanity
 Scenario Outline: verify the cyclos  directory
 
 Given User launch open the url
@@ -275,7 +275,7 @@ Examples:
 |arav|1994|
 
 
-@test29
+@sanity
 Scenario Outline: verify the scheduled payments
 
 Given User launch open the url
@@ -285,7 +285,7 @@ Examples:
 |User|pass|
 |arav|1994|
 
-@test30
+@sanity
 Scenario Outline: verify the cyclos switch theme rechk
 
 Given User launch open the url
@@ -296,7 +296,7 @@ Examples:
 |User|pass| 
 |arav|1994|
 
-@test31
+@sanity
 Scenario Outline: verify the cyclos  directory voucher
 
 Given User launch open the url
@@ -307,7 +307,7 @@ Examples:
 |User|pass| 
 |arav|1994|
 
-@test32
+@sanity
 Scenario Outline: verify the cyclos member account
 
 Given User launch open the url
@@ -317,6 +317,7 @@ And User should click car repair details and validate that
 Examples:
 |User|pass| 
 |arav|1994|
+
 
 
 
