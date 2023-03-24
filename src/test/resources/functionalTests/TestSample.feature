@@ -94,7 +94,7 @@ And User should click the brokenlink
 
 
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa  valid link option 
 
 Given User should open the url
@@ -103,7 +103,7 @@ And User should click the brokenlink option
 And User should click the validlink  
 
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -111,7 +111,7 @@ When User should click the element button
 And User should click the link option
 And User should click the forbidden option
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -119,7 +119,7 @@ When User should click the element button
 And User should click the link option
 And User should click the unauthorized option
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -128,7 +128,7 @@ And User should click the link option
 And User should click the created option
 
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa link option 
 
 Given User should open the url
@@ -146,7 +146,7 @@ And User should click the link option
 And User should click the moved option
 
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa badrequest option 
 
 Given User should open the url
@@ -156,7 +156,7 @@ And User should click the badrequest option
 
 
 
-@smoke
+@sanity
 Scenario Outline: verify the Demoqa Home  option 
 
 Given User should open the url
@@ -165,7 +165,7 @@ And User should click the link option
 And User should click the home option
 
 
-@smoke
+@sanity
 Scenario Outline: verify the homevPSkr Home  option 
 
 Given User should open the url
